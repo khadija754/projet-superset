@@ -1,0 +1,32 @@
+
+
+<div class="container">
+  <h1 class="text-center mt-5 text-light" >basketball legend</h1>
+    <div class="row m-5">
+        <div class="col-3">
+          <input [(ngModel)]="legend.name" type="text" class="form-control m-1" placeholder="name ">
+        </div>
+        <div class="col-3">
+          <input [(ngModel)]="legend.power" type="text" class="form-control m-1" placeholder="power">
+        </div>
+        <div class="col-3">
+          <input  [(ngModel)]="legend.image" type="text" class="form-control m-1" placeholder="image url">
+        </div>
+        <div class="col-3">
+          <button (click)="ajout()" class="btn form-control m-1 ">Create</button>
+        </div>
+      </div>
+      <div class="row m-5">
+      <div class="col-3" *ngFor="let item of tab_leg">
+        <div [ngClass]="{'card p-1': true ,'hight':item.power>1000 ,'medium':item.power<1000 && item.power>500, 'low':item.power<500}">
+          <div class='card-img'>
+            <img class="w-100" [src]="item.image" alt="">
+          </div> 
+          <div class="card-body">
+            <h2> {{ item.name }}</h2>
+            <p>{{ item.power }}</p>
+          </div>
+        </div>
+        </div>
+      </div>
+</div>
